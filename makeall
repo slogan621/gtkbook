@@ -1,0 +1,7 @@
+#!/bin/sh
+for file in chapter*
+do
+  cd $file
+  sh makeall $1
+  cd ..
+done 

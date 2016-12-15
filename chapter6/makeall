@@ -1,0 +1,7 @@
+#!/bin/sh
+for file in gtkclist gtkclist2 gtklist 
+do
+  cd $file
+  gmake $1
+  cd ..
+done

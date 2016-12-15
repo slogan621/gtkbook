@@ -1,0 +1,8 @@
+#!/bin/sh
+for file in gtkcolorselectiondialog gtkdialog gtkfileselection \
+  gtkfontselection gtkfontselectiondialog 
+do
+  cd $file
+  gmake $1
+  cd ..
+done

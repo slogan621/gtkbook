@@ -1,0 +1,7 @@
+#!/bin/sh
+for file in gtkarrow gtkhseparator gtkimage gtkpixmap gtkvseparator 
+do
+  cd $file
+  gmake $1
+  cd ..
+done

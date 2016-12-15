@@ -1,0 +1,7 @@
+#!/bin/sh
+for file in ctree ctree2 tree tree2 tree3 tree4
+do
+  cd $file
+  gmake $1
+  cd ..
+done

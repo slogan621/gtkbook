@@ -1,0 +1,60 @@
+#include <gtk/gtk.h>
+
+static void
+button_callback(GtkWidget *widget, gpointer data)
+{
+	printf( "%s\n" , (char *) data );
+}
+
+static GtkWidget*
+make_toolbar (GtkWidget *window)
+{
+  	GtkWidget *toolbar;
+
+  	toolbar = gtk_toolbar_new (GTK_ORIENTATION_HORIZONTAL, 
+		GTK_TOOLBAR_BOTH);
+
+  	gtk_toolbar_append_item (GTK_TOOLBAR (toolbar), "Go", 
+		"Green Means Go", NULL, new_pixmap ("go.xpm", window->window, 
+		&window->style->bg[GTK_STATE_NORMAL]), 
+		(GtkSignalFunc) button_callback, "Go button was pressed" );
+  	gtk_toolbar_append_item (GTK_TOOLBAR (toolbar), "Caution", 
+		"Yellow Means Caution", NULL, new_pixmap ("caution.xpm", 
+		window->window, &window->style->bg[GTK_STATE_NORMAL]),
+		(GtkSignalFunc) button_callback, 
+		"Caution button was pressed" );
+  	gtk_toolbar_append_item (GTK_TOOLBAR (toolbar), "Stop", 
+		"Red Means Stop", NULL, new_pixmap ("stop.xpm", 
+		window->window, &window->style->bg[GTK_STATE_NORMAL]), 
+		(GtkSignalFunc) button_callback, "Stop button was pressed" );
+  	return toolbar;
+}
+
+main( argc, argv )
+int argc;
+char *argv[];
+{
+	GtkWidget *window, *toolbar, *vbox;
+
+	gtk_init( &argc, &argv );
+
+      	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	gtk_widget_show( window );
+      	gtk_window_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
+
+      	gtk_signal_connect (GTK_OBJECT (window), "destroy",
+              GTK_SIGNAL_FUNC(gtk_widget_destroy), &window);
+
+      	gtk_window_set_title (GTK_WINDOW (window), "GtkToolbar Sample");
+      	gtk_container_border_width (GTK_CONTAINER (window), 0);
+
+	toolbar = make_toolbar(window);
+
+	vbox = gtk_vbox_new( FALSE, 0 );
+      	gtk_container_add (GTK_CONTAINER (window), vbox);
+
+	gtk_box_pack_start( GTK_BOX( vbox ), toolbar, FALSE, FALSE, 0 );
+  	gtk_widget_show_all( vbox );
+
+	gtk_main();
+}

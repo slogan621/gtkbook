@@ -1,0 +1,11 @@
+#!/bin/sh
+for file in aspectframe frame layout layout2 layout3 packer packer23-1 \
+  packer23-11 packer23-12 packer23-13 packer23-14 packer23-15 packer23-17 \
+  packer23-2 packer23-3 packer23-4 packer23-5 packer23-5-2 packer23-6 \
+  packer23-7 packer23-8 packer23-9 paned paned2 paned3 table table2 table3 \
+  table4 toolbar toolbar2 toolbar3 ttt
+do
+  cd $file
+  gmake $1
+  cd ..
+done

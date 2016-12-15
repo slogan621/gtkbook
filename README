@@ -1,0 +1,55 @@
+Sample code for Gtk+ Programming in C, 1st Edition
+
+/*
+ *
+ * Sample Code for Gtk+ Programming in C, 1st Edition, Prentice Hall
+ *
+ * Copyright 2000 - 2002 Syd Logan, All Rights Reserved
+ *
+ * This code is distributed without warranty. You are free to use this
+ * code for any purpose, however, if this code is republished or
+ * redistributed in its original form, as hardcopy or electronically,
+ * then you must include this copyright notice along with the code.
+ *
+ * Questions or comments regarding this code or any bugs it contains can
+ * be directed to the author via e-mail at slogan@cts.com
+ *
+*/
+
+
+How To Build
+------------
+
+The makeall script can be used to build the source code.
+
+To make clean:
+
+$ sh makeall clean
+
+To make:
+
+$ sh makeall
+
+The makeall script recursively descends the source tree and performs make in
+all of the source directories (nearly 100 of them).
+
+About the Programs
+------------------
+
+These programs were written by me as as a way to experiment with the behavior
+of some of the functions in the Gtk+ widget API. In some cases, the behavior
+of the program itself is not typical of a high quality application. The most
+common example of this handling window closes and quit buttons. Closing a 
+window (or hitting a quit button) may not result in the application exiting.
+Hitting Ctrl-C in the terminal window or issuing a kill(1) command is the way
+to deal with this. I may post new versions of apps that exhibit this behavior
+in the future, but don't hold your breath :-)
+
+Reporting Bugs
+--------------
+
+I am interested in bugs or comments regarding this code, or my book. Please
+send mail to me at slogan@cts.com -- use "Gtk+ Book" or "Gtk+" or "Gtk" in
+the subject to help me find your e-mail more quickly.
+
+

@@ -1,0 +1,7 @@
+#!/bin/sh
+for file in adjust1 adjust2 adjust3 adjust5 hscrollbar scale
+do
+  cd $file
+  gmake $1
+  cd ..
+done
